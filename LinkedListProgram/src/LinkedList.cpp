@@ -23,6 +23,8 @@ public:
 	void add_at_middle(int);
 	int del_from_start();
 	int del_from_end();
+	int del_element(int);
+	int del_from_middle();
 	void printList();
 };
 
@@ -51,7 +53,7 @@ void LinkedList::add_at_start(int item)
 void LinkedList::printList() {
 	Node *temp;
 	temp = start;
-	cout<<"\n";
+	cout<<"\nCurrent List::\n";
 	while (temp) {
 		cout << temp->data << "->";
 		temp = temp->next;
@@ -122,6 +124,45 @@ int LinkedList::del_from_end()
 	        }
 	    return item;
 }
+
+int LinkedList::del_element(int item)
+{
+	int flag = 0,count=1;
+     if(start == NULL)
+     {
+    	 cout<<"List empty.Element to be deleted not found.";
+     }
+     else{
+    	 Node *tmp;
+    	 Node *back;
+    	 tmp = start;
+    	 back = tmp;
+    	 while(tmp)
+    	 {
+    		 if(item == tmp->data)
+    		 {
+    			 flag = 1;
+    			 break;
+    		 }
+    		 else{
+    			 back = tmp;
+    			 tmp = tmp->next;
+    		 }
+    		 count++;
+    	 }
+    	 if(flag == 1)
+    	 {
+              back->next = tmp->next;
+              cout<<"Element found and deleted at index"<<count;
+              return item;
+
+    	 }
+    	 else{
+    		 cout<<"Element not found";
+    		 return -1;
+    	 }
+     }
+}
 int main(int argc, char **argv) {
 	LinkedList la;
 	cout << "Alka\n";
@@ -133,5 +174,7 @@ int main(int argc, char **argv) {
 	la.printList();
 	cout<<"\nDeleting:";
     la.del_from_start();
+    la.printList();
+    la.del_element(7);
 	la.printList();
 }

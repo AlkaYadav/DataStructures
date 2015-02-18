@@ -105,6 +105,29 @@ int BST::depthHelper(Node *node){
 	else return 1+max(depthHelper(node->left),depthHelper(node->right));
 
 }
+//Find the diameter of BST
+int BST::diameter(){
+	if(root == NULL){
+		return 0;
+	}
+	else{
+		return diameterHelper(root);
+	}
+}
+
+int BST::diameterHelper(Node *node){
+	if(node == NULL){
+		return 0;
+	}
+	else{
+		int lheight = depthHelper(node->left);
+		int rheight = depthHelper(node->right);
+		int ldiameter = diameterHelper(node->left);
+		int rdiameter = diameterHelper(node->right);
+		return max(max(1+lheight+rheight,ldiameter),rdiameter);
+
+	}
+}
 //Check if a given tree is a BST
 bool BST::isBST(){
 	if(root == NULL){

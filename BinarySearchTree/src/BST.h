@@ -10,6 +10,7 @@ private:
 	int minimumHelper(Node *);
 	bool searchHelper(Node *,int);
 	int depthHelper(Node *);
+	int diameterHelper(Node *);
 	bool isBSTHelper(Node *);
 	void inorderHelper(Node *);
 	void preorderHelper(Node *);
@@ -25,6 +26,7 @@ public:
 	int minimum();
 	bool search(int);
 	int depth();
+	int diameter();
 	bool isBST();
 	void inorder();
 	void preorder();

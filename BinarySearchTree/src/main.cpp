@@ -9,6 +9,11 @@ int main(){
 	bst.insert(45);
 	bst.insert(55);
 	bst.insert(70);
+	bst.insert(25);
+	bst.insert(20);
+	bst.insert(46);
+	bst.insert(47);
+	bst.insert(48);
 
 	//Insert random
 
@@ -23,7 +28,8 @@ int main(){
 	bst.inorder();
 	bst.postorder();
 	bst.preorder();
-	cout<<endl<<"Minimum value in BST:"<<bst.minimum();
+	cout<<endl<<"Diameter of BST:"<<bst.diameter();
+	cout<<endl<<"Minimum value in BST:"<<bst.minimum()<<endl;
 	cout<<endl<<"Enter the element you want to search:"<<endl;
 	cin>>data;
 	cout<<endl<<"Result of search:"<<bst.search(data)<<endl;

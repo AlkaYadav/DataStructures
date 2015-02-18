@@ -13,6 +13,8 @@ private:
 	void inorderHelper(Node *);
 	void preorderHelper(Node *);
 	void postorderHelper(Node *);
+	void printAllPossiblePathsHelper(Node*,int paths[],int len);
+	void printPath(int paths[],int len);
 
 public:
 	BST();
@@ -25,5 +27,5 @@ public:
 	void inorder();
 	void preorder();
 	void postorder();
-
+	void printAllPossiblePaths();
 };

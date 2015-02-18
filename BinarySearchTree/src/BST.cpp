@@ -209,3 +209,34 @@ void BST::postorderHelper(Node *node){
 		cout<<node->data<<"->";
 	}
 }
+//Print all possible paths in a BST
+void BST::printAllPossiblePaths(){
+	if(root == NULL){
+		cout<<endl<<"Tree empty.No possible paths exist"<<endl;
+	}
+	else{
+		int paths[20];
+		printAllPossiblePathsHelper(root,paths,0);
+	}
+}
+
+void BST::printAllPossiblePathsHelper(Node* node,int paths[],int len){
+	paths[len++] = node->data;
+	if(node->left == NULL && node->right == NULL){
+		printPath(paths,len);
+	}
+	else{
+		printAllPossiblePathsHelper(node->left,paths,len);
+		printAllPossiblePathsHelper(node->right,paths,len);
+	}
+
+}
+
+void BST::printPath(int paths[],int len){
+	cout<<endl;
+	cout<<"Possible path:"<<endl;
+	for(int i=0;i<len;i++){
+		cout<<paths[i]<<"->";
+	}
+	cout<<endl;
+}

@@ -4,6 +4,7 @@ using namespace std;
 class BST{
 private:
 	Node *root;
+	Node *root2;   //Second BST
 	void insertHelper(Node **,int);
 	int countHelper(Node *);
 	int minimumHelper(Node *);
@@ -15,6 +16,7 @@ private:
 	void postorderHelper(Node *);
 	void printAllPossiblePathsHelper(Node*,int paths[],int len);
 	void printPath(int paths[],int len);
+	bool checkTreesSimilarityHelper(Node *,Node *);
 
 public:
 	BST();
@@ -28,4 +30,6 @@ public:
 	void preorder();
 	void postorder();
 	void printAllPossiblePaths();
+	bool checkTreesSimilarity();
+	void insertRandomForSecondBST(int);
 };

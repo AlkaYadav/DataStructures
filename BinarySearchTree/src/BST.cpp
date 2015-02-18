@@ -240,3 +240,31 @@ void BST::printPath(int paths[],int len){
 	}
 	cout<<endl;
 }
+
+//Check if two binary trees are same or not
+
+bool BST::checkTreesSimilarity(){
+	if(root == NULL && root2 == NULL){
+		return true;
+	}
+	else{
+		return checkTreesSimilarityHelper(root,root2);
+	}
+
+}
+
+bool BST::checkTreesSimilarityHelper(Node *node1,Node *node2){
+	if(node1 == NULL && node2 == NULL){
+		return true;
+	}
+	else if(node1->data == node2->data){
+		return checkTreesSimilarityHelper(node1->left,node2->left) &&
+				checkTreesSimilarityHelper(node1->right,node2->right);
+	}
+	else return false;
+}
+
+//Insert random for second BST
+void BST::insertRandomForSecondBST(int data){
+	insertHelper(&root2,data);
+}

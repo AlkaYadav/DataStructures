@@ -57,6 +57,34 @@ int BST::minimumHelper(Node *node){
 		return minimumHelper(node->left);
 	}
 }
+
+//Search element in BST
+bool BST::search(int data){
+	if(root == NULL){
+			cout<<endl<<"BST empty.So no element to search."<<endl;
+			return -1;
+		}
+		else{
+			return searchHelper(root,data);
+		}
+}
+
+bool BST::searchHelper(Node *node,int data){
+	if(data == node->data){
+		cout<<endl<<"Found:"<<node->data;
+		return true;
+	}
+	else if(data < node->data){
+		return searchHelper(node->left,data);
+	}
+	else if(data > node->data){
+		return searchHelper(node->right,data);
+	}
+	else{
+		cout<<endl<<"Not Found:"<<data<<endl;
+		return false;
+	}
+}
 //Inorder Traversal of BST
 void BST::inorder(){
 	if(root == NULL){

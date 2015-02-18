@@ -7,9 +7,13 @@ private:
 	void insertHelper(Node **,int);
 	int countHelper(Node *);
 	void inorderHelper(Node *);
+	void preorderHelper(Node *);
+	void postorderHelper(Node *);
 public:
 	BST();
 	void insert(int);
 	int count();
 	void inorder();
+	void preorder();
+	void postorder();
 };

@@ -59,3 +59,47 @@ void BST::inorderHelper(Node *node){
 		inorderHelper(node -> right);
 	}
 }
+
+//Preorder Traversal of BST
+void BST::preorder(){
+	if(root == NULL){
+		cout<<"BST empty";
+	}
+	else{
+		cout<<endl<<"Preorder Traversal"<<endl;
+		preorderHelper(root);
+	}
+}
+
+void BST::preorderHelper(Node *node){
+	if(node == NULL){
+		return;
+	}
+	else{
+		cout<<node->data<<"->";
+		preorderHelper(node -> left);
+		preorderHelper(node -> right);
+	}
+}
+
+//Postorder Traversal of BST
+void BST::postorder(){
+	if(root == NULL){
+		cout<<"BST empty";
+	}
+	else{
+		cout<<endl<<"Postorder Traversal"<<endl;
+		postorderHelper(root);
+	}
+}
+
+void BST::postorderHelper(Node *node){
+	if(node == NULL){
+		return;
+	}
+	else{
+		postorderHelper(node -> left);
+		postorderHelper(node -> right);
+		cout<<node->data<<"->";
+	}
+}

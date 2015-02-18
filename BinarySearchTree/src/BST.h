@@ -6,14 +6,18 @@ private:
 	Node *root;
 	void insertHelper(Node **,int);
 	int countHelper(Node *);
+	int minimumHelper(Node *);
 	void inorderHelper(Node *);
 	void preorderHelper(Node *);
 	void postorderHelper(Node *);
+
 public:
 	BST();
 	void insert(int);
 	int count();
+	int minimum();
 	void inorder();
 	void preorder();
 	void postorder();
+
 };

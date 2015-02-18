@@ -38,6 +38,25 @@ int BST::countHelper(Node *node){
 	else return 1+countHelper(node->left)+countHelper(node->right);
 }
 
+//Find the minimum value of BST
+int BST::minimum(){
+	if(root == NULL){
+		cout<<endl<<"BST empty.So no minimum"<<endl;
+		return -1;
+	}
+	else{
+		return minimumHelper(root);
+	}
+}
+
+int BST::minimumHelper(Node *node){
+	if(node->left == NULL){
+		return node->data;
+	}
+	else{
+		return minimumHelper(node->left);
+	}
+}
 //Inorder Traversal of BST
 void BST::inorder(){
 	if(root == NULL){

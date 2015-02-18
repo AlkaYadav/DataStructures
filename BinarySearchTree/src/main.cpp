@@ -8,4 +8,5 @@ int main(){
 	bst.inorder();
 	bst.postorder();
 	bst.preorder();
+	cout<<"Minimum value in BST:"<<bst.minimum();
 }

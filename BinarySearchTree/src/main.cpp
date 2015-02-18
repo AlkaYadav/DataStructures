@@ -12,6 +12,8 @@ int main(){
 	cout<<endl<<"Minimum value in BST:"<<bst.minimum();
 	cout<<endl<<"Enter the element you want to search:"<<endl;
 	cin>>data;
-	bst.search(data);
+	cout<<endl<<"Result of search:"<<bst.search(data)<<endl;
 	cout<<endl<<"Maximum depth of BST:"<<bst.depth()<<endl;
+	cout<<endl<<"isBST:"<<bst.isBST()<<endl;
+	bst.inorder();
 }

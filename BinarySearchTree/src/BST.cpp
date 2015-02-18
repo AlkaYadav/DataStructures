@@ -70,6 +70,9 @@ bool BST::search(int data){
 }
 
 bool BST::searchHelper(Node *node,int data){
+	if(node == NULL){
+		return false;
+	}
 	if(data == node->data){
 		cout<<endl<<"Found:"<<node->data;
 		return true;
@@ -102,6 +105,45 @@ int BST::depthHelper(Node *node){
 	else return 1+max(depthHelper(node->left),depthHelper(node->right));
 
 }
+//Check if a given tree is a BST
+bool BST::isBST(){
+	if(root == NULL){
+		cout<<endl<<"Empty tree"<<endl;
+		return true;
+	}
+	else{
+		return isBSTHelper(root);
+	}
+}
+
+bool BST::isBSTHelper(Node *node){
+	if(node->left == NULL && node-> right == NULL){
+		return true;
+	}
+	else if(node->left && node-> right){
+		if(node->left->data < node->data && node->right->data > node->data){
+			return isBSTHelper(node->left) && isBSTHelper(node->right);
+		}
+	}
+	else if(node->left && (node-> right)){
+		if(node->left->data < node->data){
+			return isBSTHelper(node->left);
+		}
+		else {
+			return false;
+		}
+	}
+	else if(!(node->left) && node-> right){
+		if(node->right->data > node->data){
+					return isBSTHelper(node->right);
+				}
+				else {
+					return false;
+				}
+	}
+	return true;
+}
+
 //Inorder Traversal of BST
 void BST::inorder(){
 	if(root == NULL){

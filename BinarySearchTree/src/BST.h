@@ -8,6 +8,7 @@ private:
 	int countHelper(Node *);
 	int minimumHelper(Node *);
 	bool searchHelper(Node *,int);
+	int depthHelper(Node *);
 	void inorderHelper(Node *);
 	void preorderHelper(Node *);
 	void postorderHelper(Node *);
@@ -18,6 +19,7 @@ public:
 	int count();
 	int minimum();
 	bool search(int);
+	int depth();
 	void inorder();
 	void preorder();
 	void postorder();

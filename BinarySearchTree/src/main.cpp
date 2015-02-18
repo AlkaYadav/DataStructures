@@ -13,4 +13,5 @@ int main(){
 	cout<<endl<<"Enter the element you want to search:"<<endl;
 	cin>>data;
 	bst.search(data);
+	cout<<endl<<"Maximum depth of BST:"<<bst.depth()<<endl;
 }

@@ -85,6 +85,23 @@ bool BST::searchHelper(Node *node,int data){
 		return false;
 	}
 }
+
+//Find the maximum depth of BST
+int BST::depth(){
+	if(root == NULL){
+		cout<<endl<<"BST with no elements"<<endl;
+		return 0;
+	}
+	else return depthHelper(root);
+}
+
+int BST::depthHelper(Node *node){
+	if(node == NULL){
+		return 0;
+	}
+	else return 1+max(depthHelper(node->left),depthHelper(node->right));
+
+}
 //Inorder Traversal of BST
 void BST::inorder(){
 	if(root == NULL){

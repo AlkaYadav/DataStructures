@@ -4,6 +4,7 @@
 //Constructor
 BST::BST(){
 	root = NULL;
+	root2 = NULL;
 }
 
 //Insert Function in BST
@@ -244,6 +245,9 @@ void BST::printAllPossiblePaths(){
 }
 
 void BST::printAllPossiblePathsHelper(Node* node,int paths[],int len){
+	if(node == NULL){
+		return;
+	}
 	paths[len++] = node->data;
 	if(node->left == NULL && node->right == NULL){
 		printPath(paths,len);
@@ -290,4 +294,26 @@ bool BST::checkTreesSimilarityHelper(Node *node1,Node *node2){
 //Insert random for second BST
 void BST::insertRandomForSecondBST(int data){
 	insertHelper(&root2,data);
+}
+
+//To delete all nodes of a BST
+void BST::deleteBST(){
+     if(root == NULL){
+    	 cout<<"BST is empty.Nothing to delete.";
+     }
+     else{
+    	 deleteBSTHelper(&root);
+     }
+}
+
+void BST::deleteBSTHelper(Node **node){
+	if((*node) == NULL){
+		return;
+	}
+	deleteBSTHelper(&(*node)->left);
+	deleteBSTHelper(&(*node)->right);
+	if((*node)->left == NULL && (*node)->right == NULL){
+		delete *node;
+		*node = NULL;
+	}
 }

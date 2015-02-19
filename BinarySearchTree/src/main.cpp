@@ -22,8 +22,13 @@ int main(){
 	bst.insertRandomForSecondBST(60);
 	bst.insertRandomForSecondBST(30);
 	bst.insertRandomForSecondBST(45);
-	bst.insertRandomForSecondBST(53);
+	bst.insertRandomForSecondBST(55);
 	bst.insertRandomForSecondBST(70);
+	bst.insertRandomForSecondBST(25);
+	bst.insertRandomForSecondBST(20);
+	bst.insertRandomForSecondBST(46);
+	bst.insertRandomForSecondBST(47);
+	bst.insertRandomForSecondBST(48);
 	cout<<endl<<"Number of nodes in BST are:"<<bst.count()<<endl;
 	bst.inorder();
 	bst.postorder();
@@ -41,4 +46,7 @@ int main(){
 	cout<<"Checking for similarity of two BSTs:"<<endl;
 	cout<<endl<<"Result of checking similarity:"<<bst.checkTreesSimilarity()<<endl;
 	bst.printAllPossiblePaths();
+	cout<<endl<<"Deleting BST:"<<endl;
+	bst.deleteBST();
+	cout<<endl<<"Number of nodes in BST are:"<<bst.count()<<endl;
 }

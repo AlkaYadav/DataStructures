@@ -13,6 +13,7 @@ private:
 	int depthHelper(Node *);
 	int diameterHelper(Node *);
 	bool isBSTHelper(Node *);
+	bool hasPathSumHelper(Node*,int );
 	void inorderHelper(Node *);
 	void preorderHelper(Node *);
 	void postorderHelper(Node *);
@@ -31,6 +32,7 @@ public:
 	int depth();
 	int diameter();
 	bool isBST();
+	bool hasPathSum(int sum);
 	void inorder();
 	void preorder();
 	void postorder();

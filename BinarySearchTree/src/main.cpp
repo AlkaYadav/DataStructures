@@ -1,11 +1,12 @@
 #include "BST.h"
 int main(){
 	BST bst;
-	int data;
+	int data,sum;
 	bst.insert(50);
 	bst.insert(40);
 	bst.insert(60);
 	bst.insert(30);
+	/*
 	bst.insert(45);
 	bst.insert(55);
 	bst.insert(70);
@@ -14,7 +15,7 @@ int main(){
 	bst.insert(46);
 	bst.insert(47);
 	bst.insert(48);
-
+	*/
 	//Insert random
 
 	bst.insertRandomForSecondBST(50);
@@ -36,6 +37,9 @@ int main(){
 	cout<<endl<<"Postorder Iterative"<<endl;
 	bst.postorderIterative();
 	bst.preorder();
+	cout<<"Enter the sum to check in BST";
+	cin>>sum;
+	cout<<endl<<"Result:"<<bst.hasPathSum(sum)<<endl;
 	cout<<endl<<"Diameter of BST:"<<bst.diameter();
 	cout<<endl<<"Minimum value in BST:"<<bst.minimum()<<endl;
 	cout<<endl<<"Enter the element you want to search:"<<endl;

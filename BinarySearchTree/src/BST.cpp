@@ -167,7 +167,23 @@ bool BST::isBSTHelper(Node *node){
 	}
 	return true;
 }
-
+//Find if the BST has a path of a particular sum
+bool BST::hasPathSum(int sum){
+	if(root == NULL){
+		cout<<endl<<"Empty tree"<<endl;
+		return sum==0;
+	}
+	else{
+		return hasPathSumHelper(root,sum);
+	}
+}
+bool BST::hasPathSumHelper(Node* node,int sum){
+	if(node == NULL){
+		return sum==0;
+	}
+	int subsum=sum-node->data;
+	return hasPathSumHelper(node->left,subsum)||hasPathSumHelper(node->right,subsum);
+}
 //Inorder Traversal of BST
 void BST::inorder(){
 	if(root == NULL){
@@ -318,6 +334,9 @@ bool BST::checkTreesSimilarityHelper(Node *node1,Node *node2){
 	if(node1 == NULL && node2 == NULL){
 		return true;
 	}
+	if((node1 && !node2) || (!node1 && node2)){
+			return false;
+		}
 	else if(node1->data == node2->data){
 		return checkTreesSimilarityHelper(node1->left,node2->left) &&
 				checkTreesSimilarityHelper(node1->right,node2->right);

@@ -31,7 +31,10 @@ int main(){
 	bst.insertRandomForSecondBST(48);
 	cout<<endl<<"Number of nodes in BST are:"<<bst.count()<<endl;
 	bst.inorder();
+	cout<<endl<<"Postorder"<<endl;
 	bst.postorder();
+	cout<<endl<<"Postorder Iterative"<<endl;
+	bst.postorderIterative();
 	bst.preorder();
 	cout<<endl<<"Diameter of BST:"<<bst.diameter();
 	cout<<endl<<"Minimum value in BST:"<<bst.minimum()<<endl;

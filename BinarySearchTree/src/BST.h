@@ -1,5 +1,6 @@
 #include "Node.h"
 #include<iostream>
+#include<stack>
 using namespace std;
 class BST{
 private:
@@ -15,6 +16,7 @@ private:
 	void inorderHelper(Node *);
 	void preorderHelper(Node *);
 	void postorderHelper(Node *);
+	void postorderIterativeHelper(Node *);
 	void printAllPossiblePathsHelper(Node*,int paths[],int len);
 	void printPath(int paths[],int len);
 	bool checkTreesSimilarityHelper(Node *,Node *);
@@ -32,6 +34,7 @@ public:
 	void inorder();
 	void preorder();
 	void postorder();
+	void postorderIterative();
 	void printAllPossiblePaths();
 	bool checkTreesSimilarity();
 	void insertRandomForSecondBST(int);

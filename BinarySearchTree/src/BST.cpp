@@ -233,6 +233,40 @@ void BST::postorderHelper(Node *node){
 		cout<<node->data<<"->";
 	}
 }
+//Postorder using itertaive version
+void BST::postorderIterative(){
+	if(root == NULL){
+			cout<<"BST empty";
+		}
+		else{
+			postorderIterativeHelper(root);
+		}
+}
+void BST::postorderIterativeHelper(Node *node){
+	//Using stack
+	stack <Node *> input;
+	stack <Node *> output;
+	if(node){
+		input.push(node);
+		while(!input.empty()){
+			Node *tmp = input.top();
+			input.pop();
+			output.push(tmp);
+			if(tmp->left){
+				input.push(tmp->left);
+			}
+			if(tmp->right){
+				input.push(tmp->right);
+						}
+
+		}
+	}
+	cout<<endl<<"Output:"<<endl;
+	while(!output.empty()){
+		cout<<output.top()->data<<"->";
+		output.pop();
+	}
+}
 //Print all possible paths in a BST
 void BST::printAllPossiblePaths(){
 	if(root == NULL){

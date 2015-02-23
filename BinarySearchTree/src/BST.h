@@ -27,6 +27,7 @@ public:
 	BST();
 	void insert(int);
 	int count();
+	int catalanNumber(int n);
 	int minimum();
 	bool search(int);
 	int depth();

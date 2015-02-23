@@ -38,7 +38,19 @@ int BST::countHelper(Node *node){
 	}
 	else return 1+countHelper(node->left)+countHelper(node->right);
 }
-
+//Count number of binary trees for given n distinct elements.
+int BST::catalanNumber(int n){
+	int sum=0;
+	if(n==0 || n==1){
+		return 1;
+	}
+	else{
+		for(int k=1;k<=n;k++){
+			sum+=catalanNumber(k-1)*catalanNumber(n-k);
+		}
+	}
+	return sum;
+}
 //Find the minimum value of BST
 int BST::minimum(){
 	if(root == NULL){

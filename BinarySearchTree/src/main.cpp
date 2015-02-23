@@ -31,13 +31,14 @@ int main(){
 	bst.insertRandomForSecondBST(47);
 	bst.insertRandomForSecondBST(48);
 	cout<<endl<<"Number of nodes in BST are:"<<bst.count()<<endl;
+	cout<<endl<<"Number of binary trees possible with this count is :"<<bst.catalanNumber(bst.count())<<endl;
 	bst.inorder();
 	cout<<endl<<"Postorder"<<endl;
 	bst.postorder();
 	cout<<endl<<"Postorder Iterative"<<endl;
 	bst.postorderIterative();
 	bst.preorder();
-	cout<<"Enter the sum to check in BST";
+	cout<<endl<<"Enter the sum to check in BST"<<endl;
 	cin>>sum;
 	cout<<endl<<"Result:"<<bst.hasPathSum(sum)<<endl;
 	cout<<endl<<"Diameter of BST:"<<bst.diameter();

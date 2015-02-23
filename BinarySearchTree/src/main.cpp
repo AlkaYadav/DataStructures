@@ -1,12 +1,13 @@
 #include "BST.h"
 int main(){
 	BST bst;
+	int node1,node2;
 	int data,sum;
 	bst.insert(50);
 	bst.insert(40);
 	bst.insert(60);
 	bst.insert(30);
-	/*
+
 	bst.insert(45);
 	bst.insert(55);
 	bst.insert(70);
@@ -15,7 +16,7 @@ int main(){
 	bst.insert(46);
 	bst.insert(47);
 	bst.insert(48);
-	*/
+
 	//Insert random
 
 	bst.insertRandomForSecondBST(50);
@@ -48,6 +49,9 @@ int main(){
 	cout<<endl<<"Result of search:"<<bst.search(data)<<endl;
 	cout<<endl<<"Maximum depth of BST:"<<bst.depth()<<endl;
 	cout<<endl<<"isBST:"<<bst.isBST()<<endl;
+	cout<<endl<<"Enter the nodes for finding lowest common ancestor"<<endl;
+	cin>>node1>>node2;
+	cout<<endl<<"Lowest common ancestor of "<<node1<<"and"<<node2<<"is:"<<bst.lowestCommonAncestor(node1,node2);
 	bst.inorder();
 	bst.postorder();
 	bst.preorder();

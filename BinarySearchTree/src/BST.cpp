@@ -1,6 +1,9 @@
 #include"BST.h"
 #include<stdio.h>
-
+int globalInorder[20];
+int globalPostorder[20];
+int globalLenInorder=0;
+int globalLenPostorder=0;
 //Constructor
 BST::BST(){
 	root = NULL;
@@ -179,6 +182,29 @@ bool BST::isBSTHelper(Node *node){
 	}
 	return true;
 }
+//Find lowest Common Ancestor for any two given nodes
+int BST::lowestCommonAncestor(int node1,int node2){
+	int index1,index2;
+	for(int i=0;i<globalLenInorder;i++){
+		if(globalInorder[i] == node1){
+			index1 = i;
+		}
+		if(globalInorder[i] == node2){
+					index2 = i;
+				}
+	}
+	int rank=-1;
+	for(int j=index1;j<index2;j++){
+		for(int k=0;k<globalLenPostorder;k++){
+			if(globalInorder[j] == globalPostorder[k]){
+				if(k>rank){
+					rank =k;
+				}
+			}
+		}
+	}
+	return globalPostorder[rank];
+}
 //Find if the BST has a path of a particular sum
 bool BST::hasPathSum(int sum){
 	if(root == NULL){
@@ -214,6 +240,7 @@ void BST::inorderHelper(Node *node){
 	else{
 		inorderHelper(node -> left);
 		cout<<node->data<<"->";
+		globalInorder[globalLenInorder++]=node->data; //For finding lowest common ancestor
 		inorderHelper(node -> right);
 	}
 }
@@ -259,6 +286,7 @@ void BST::postorderHelper(Node *node){
 		postorderHelper(node -> left);
 		postorderHelper(node -> right);
 		cout<<node->data<<"->";
+		globalPostorder[globalLenPostorder++]=node->data; //For finding lowest common ancestor
 	}
 }
 //Postorder using itertaive version

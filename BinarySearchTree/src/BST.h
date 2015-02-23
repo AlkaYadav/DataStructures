@@ -33,6 +33,7 @@ public:
 	int depth();
 	int diameter();
 	bool isBST();
+	int lowestCommonAncestor(int node1,int node2);
 	bool hasPathSum(int sum);
 	void inorder();
 	void preorder();

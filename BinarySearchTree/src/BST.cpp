@@ -75,23 +75,25 @@ int BST::minimumHelper(Node *node){
 }
 
 //Search element in BST
-bool BST::search(int data){
+Node * BST::search(int data){
 	if(root == NULL){
 			cout<<endl<<"BST empty.So no element to search."<<endl;
-			return -1;
+			return NULL;
 		}
 		else{
+			if(searchHelper(root,data))
 			return searchHelper(root,data);
+			else
+				return NULL;
 		}
 }
 
-bool BST::searchHelper(Node *node,int data){
+Node * BST::searchHelper(Node *node,int data){
 	if(node == NULL){
-		return false;
+		return NULL;
 	}
 	if(data == node->data){
-		cout<<endl<<"Found:"<<node->data;
-		return true;
+		return node;
 	}
 	else if(data < node->data){
 		return searchHelper(node->left,data);
@@ -101,7 +103,7 @@ bool BST::searchHelper(Node *node,int data){
 	}
 	else{
 		cout<<endl<<"Not Found:"<<data<<endl;
-		return false;
+		return NULL;
 	}
 }
 
@@ -182,6 +184,47 @@ bool BST::isBSTHelper(Node *node){
 	}
 	return true;
 }
+//Find the parent of a node
+
+int BST::parentNode(int data){
+	if(root == NULL){
+			cout<<endl<<"Empty tree"<<endl;
+			return -1;
+		}
+		else{
+			cout<<search(data);
+			if(search(data)){
+				if(parentNodeHelper(root,data)){
+					cout<<endl;
+					return (parentNodeHelper(root,data))->data;
+				}
+				else{
+					cout<<endl<<"Parent of root is NULL"<<endl;
+					return 0;
+				}
+			}
+
+			else return -1;
+		}
+}
+
+Node *BST::parentNodeHelper(Node *node,int data){
+	static Node * parent = NULL;
+	if(data == node->data){
+		return parent;
+	}
+	else if(data < node->data){
+			parent = node;
+			parentNodeHelper(node->left,data);
+		}
+		else if(data > node->data){
+			parent = node;
+			parentNodeHelper(node->right,data);
+		}
+	return parent;
+}
+
+
 //Find lowest Common Ancestor for any two given nodes
 int BST::lowestCommonAncestor(int node1,int node2){
 	int index1,index2;

@@ -46,6 +46,9 @@ int main(){
 	cout<<endl<<"Minimum value in BST:"<<bst.minimum()<<endl;
 	cout<<endl<<"Enter the element you want to search:"<<endl;
 	cin>>data;
+	cout<<endl<<"Enter the node data to find parent of:"<<endl;
+	cin>>data;
+	cout<<endl<<"Parent is:"<<endl<<bst.parentNode(data)<<endl;
 	cout<<endl<<"Result of search:"<<bst.search(data)<<endl;
 	cout<<endl<<"Maximum depth of BST:"<<bst.depth()<<endl;
 	cout<<endl<<"isBST:"<<bst.isBST()<<endl;

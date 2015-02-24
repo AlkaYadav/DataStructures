@@ -223,8 +223,36 @@ Node *BST::parentNodeHelper(Node *node,int data){
 		}
 	return parent;
 }
+//Find the tree successor
+int BST::treeSuccessor(int data){
+	if(search(data)){
+		return treeSuccessorHelper(searchHelper(root,data));
+	}
+	else{
+		cout<<endl<<"Not found in tree"<<endl;
+		return -1;
+	}
+}
+int BST::treeSuccessorHelper(Node *node){
+	if(node->right){
+		node = node->right;
+		while(node -> left){
+			cout<<endl<<"In left"<<node->left->data<<endl;
+			node = node->left;
+		}
+		return node->data;
+	}
+	else{
+		Node *y=parentNodeHelper(node,node->data);
+		while(y && node==y->right){
+			node=y;
+			cout<<endl<<"In right"<<y->data<<endl;
+			y=parentNodeHelper(y,y->data);
 
-
+		}
+		return y->data;
+	}
+}
 //Find lowest Common Ancestor for any two given nodes
 int BST::lowestCommonAncestor(int node1,int node2){
 	int index1,index2;

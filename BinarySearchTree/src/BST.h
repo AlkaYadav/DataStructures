@@ -38,7 +38,7 @@ public:
 	int diameter();
 	bool isBST();
     int parentNode(int data);
-	int treeSuccessor(int node);
+	int treeSuccessor(int data);
 	int lowestCommonAncestor(int node1,int node2);
 	bool hasPathSum(int sum);
 

@@ -39,6 +39,7 @@ int main(){
 	cout<<endl<<"Postorder Iterative"<<endl;
 	bst.postorderIterative();
 	bst.preorder();
+
 	cout<<endl<<"Enter the sum to check in BST"<<endl;
 	cin>>sum;
 	cout<<endl<<"Result:"<<bst.hasPathSum(sum)<<endl;
@@ -49,6 +50,9 @@ int main(){
 	cout<<endl<<"Enter the node data to find parent of:"<<endl;
 	cin>>data;
 	cout<<endl<<"Parent is:"<<endl<<bst.parentNode(data)<<endl;
+	cout<<"Enter node to find Tree successor for:"<<endl;
+	cin>>data;
+	cout<<bst.treeSuccessor(data);
 	cout<<endl<<"Result of search:"<<bst.search(data)<<endl;
 	cout<<endl<<"Maximum depth of BST:"<<bst.depth()<<endl;
 	cout<<endl<<"isBST:"<<bst.isBST()<<endl;

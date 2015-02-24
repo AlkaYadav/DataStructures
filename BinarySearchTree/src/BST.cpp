@@ -192,7 +192,6 @@ int BST::parentNode(int data){
 			return -1;
 		}
 		else{
-			cout<<search(data);
 			if(search(data)){
 				if(parentNodeHelper(root,data)){
 					cout<<endl;
@@ -215,18 +214,19 @@ Node *BST::parentNodeHelper(Node *node,int data){
 	}
 	else if(data < node->data){
 			parent = node;
-			parentNodeHelper(node->left,data);
+			return parentNodeHelper(node->left,data);
 		}
 		else if(data > node->data){
 			parent = node;
-			parentNodeHelper(node->right,data);
+			return parentNodeHelper(node->right,data);
 		}
 	return parent;
 }
 //Find the tree successor
 int BST::treeSuccessor(int data){
 	if(search(data)){
-		return treeSuccessorHelper(searchHelper(root,data));
+		cout<<endl<<"Data is found in tree"<<endl;
+		return treeSuccessorHelper(search(data));
 	}
 	else{
 		cout<<endl<<"Not found in tree"<<endl;
@@ -243,7 +243,8 @@ int BST::treeSuccessorHelper(Node *node){
 		return node->data;
 	}
 	else{
-		Node *y=parentNodeHelper(node,node->data);
+		Node *y=parentNodeHelper(root,node->data);
+		cout<<"parent is:"<<y->data;
 		while(y && node==y->right){
 			node=y;
 			cout<<endl<<"In right"<<y->data<<endl;
@@ -459,7 +460,58 @@ bool BST::checkTreesSimilarityHelper(Node *node1,Node *node2){
 void BST::insertRandomForSecondBST(int data){
 	insertHelper(&root2,data);
 }
+//To delete a node in BST
+void BST::deleteBSTNode(int data){
+	if(root == NULL){
+	    	 cout<<"BST is empty.Nothing to delete.";
+	     }
+	     else{
+	    	 deleteBSTNodeHelper(root,data);
+	     }
+}
+Node * BST::deleteBSTNodeHelper(Node *node,int data){
+	if(node == NULL){
+		return node;
+	}
+	else if(data<node->data){
+		deleteBSTNodeHelper(node->left,data);
+	}
+	else if (data>node->data){
+		deleteBSTNodeHelper(node->right,data);
+	}
+	else{
+		//Delete the node!!!
+		if(node->left == NULL && node->right == NULL){
+			delete node;
+			node=NULL;
+		}
+		else if(node->left == NULL){
+			Node *tmp=node;
+			node=node->right;
+			delete tmp;
 
+		}
+		else if(node->right == NULL){
+			Node *tmp=node;
+			node=node->left;
+			delete tmp;
+
+				}
+		else{
+			Node *tmp=find_min(node->right);
+			node->data = tmp->data;
+			node->right=deleteBSTNodeHelper(node->right,tmp->data);
+		}
+	}
+	return node;
+}
+
+Node *BST::find_min(Node *node){
+	while(node->left){
+		node=node->left;
+	}
+	return node;
+}
 //To delete all nodes of a BST
 void BST::deleteBST(){
      if(root == NULL){

@@ -25,6 +25,8 @@ private:
 	void printAllPossiblePathsHelper(Node*,int paths[],int len);
 	void printPath(int paths[],int len);
 	bool checkTreesSimilarityHelper(Node *,Node *);
+	Node * deleteBSTNodeHelper(Node *,int);
+	Node * find_min(Node *);
 	void deleteBSTHelper(Node **);
 
 public:
@@ -50,5 +52,7 @@ public:
 	void printAllPossiblePaths();
 	bool checkTreesSimilarity();
 	void insertRandomForSecondBST(int);
+	void deleteBSTNode(int data);
 	void deleteBST();
+
 };

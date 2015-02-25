@@ -474,10 +474,10 @@ Node * BST::deleteBSTNodeHelper(Node *node,int data){
 		return node;
 	}
 	else if(data<node->data){
-		deleteBSTNodeHelper(node->left,data);
+		node->left=deleteBSTNodeHelper(node->left,data);
 	}
 	else if (data>node->data){
-		deleteBSTNodeHelper(node->right,data);
+		node->right=deleteBSTNodeHelper(node->right,data);
 	}
 	else{
 		//Delete the node!!!
@@ -489,13 +489,11 @@ Node * BST::deleteBSTNodeHelper(Node *node,int data){
 			Node *tmp=node;
 			node=node->right;
 			delete tmp;
-
 		}
 		else if(node->right == NULL){
 			Node *tmp=node;
 			node=node->left;
 			delete tmp;
-
 				}
 		else{
 			Node *tmp=find_min(node->right);

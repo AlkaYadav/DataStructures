@@ -1,12 +1,14 @@
 #include"AdjacencyMatrix.h"
 #include "AdjacencyList.h"
+#include "BFS.h"
 int main(){
-	int node,origin,dest,option;
+	int node,origin,dest,option,source;
 	cout<<endl<<"Enter the number of nodes in the graph"<<endl;
 	cin>>node;
 	int max_edge;
 	AdjacencyMatrix am(node);
 	AdjacencyList al(node);
+	BFS bfs;
 	do{
 	cout<<endl<<"1.Enter the edges for adjacency matrix"<<endl;
 	cout<<endl<<"2.Print Adjacency Matrix"<<endl;
@@ -15,6 +17,7 @@ int main(){
 	cout<<endl<<"5.Print Adjacency List"<<endl;
 	cout<<endl<<"6.Enter the edges for adjacency list for directed graph"<<endl;
 	cout<<endl<<"7.Enter the edges you want to delete for adjacency list for directed graph"<<endl;
+	cout<<endl<<"8.BFS of graph"<<endl;
 
 	cout<<endl<<"Enter -1 to exit"<<endl;
 	cin>>option;
@@ -78,6 +81,11 @@ int main(){
 		}
 		al.del_edge_directed(origin,dest);
 		}
+		break;
+	case 8:
+		cout<<endl<<"Enter the source node"<<endl;
+		cin>>source;
+		bfs.BFS_Graph(al,source);
 		break;
 	}
 	}while(option!=-1);

@@ -13,13 +13,12 @@ AdjacencyMatrix::AdjacencyMatrix(int nodes){
 }
 
 void AdjacencyMatrix::addEdge(int origin,int dest){
-	int max_edges=node*(node-1);
-	if(origin>node||origin<=0||dest>node||dest<=0){
+	if(origin>=node||origin<0||dest>=node||dest<0){
 		cout<<endl<<"Invalid entry"<<endl;
 		return;
 	}
 	else{
-		adj[origin-1][dest-1]=1;
+		adj[origin][dest]=1;
 	}
 }
 

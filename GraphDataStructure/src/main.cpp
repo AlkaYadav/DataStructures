@@ -21,7 +21,6 @@ int main(){
 	cout<<endl<<"7.Enter the edges you want to delete for adjacency list for directed graph"<<endl;
 	cout<<endl<<"8.BFS of graph"<<endl;
 	cout<<endl<<"9.DFS of graph"<<endl;
-
 	cout<<endl<<"Enter -1 to exit"<<endl;
 	cin>>option;
 	switch(option){

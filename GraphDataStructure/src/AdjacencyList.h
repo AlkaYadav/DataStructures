@@ -9,6 +9,7 @@ class Node{
 	friend class AdjacencyList;
 	friend class BFS;
 	friend class DFS;
+
 };
 class AdjacencyList{
 	int node;

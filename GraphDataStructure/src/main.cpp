@@ -2,8 +2,9 @@
 #include "AdjacencyList.h"
 #include "BFS.h"
 #include "DFS.h"
+#include "Graph_Dijkstra.h"
 int main(){
-	int node,origin,dest,option,source;
+	int node,origin,dest,option,source,weight;
 	cout<<endl<<"Enter the number of nodes in the graph"<<endl;
 	cin>>node;
 	int max_edge;
@@ -11,6 +12,7 @@ int main(){
 	AdjacencyList al(node);
 	BFS bfs;
 	DFS dfs(al);
+	Graph_Dijkstra gd(node);
 	do{
 	cout<<endl<<"1.Enter the edges for adjacency matrix"<<endl;
 	cout<<endl<<"2.Print Adjacency Matrix"<<endl;
@@ -21,6 +23,7 @@ int main(){
 	cout<<endl<<"7.Enter the edges you want to delete for adjacency list for directed graph"<<endl;
 	cout<<endl<<"8.BFS of graph"<<endl;
 	cout<<endl<<"9.DFS of graph"<<endl;
+	cout<<endl<<"10.Djikstra of graph"<<endl;
 	cout<<endl<<"Enter -1 to exit"<<endl;
 	cin>>option;
 	switch(option){
@@ -93,6 +96,20 @@ int main(){
 		cout<<endl<<"Enter the source node"<<endl;
 		cin>>source;
 		dfs.DFS_Graph(al,source);
+		break;
+	case 10:
+		max_edge=node*(node-1);
+		for(int i=0;i<max_edge;i++){
+		cout<<"Enter the edges(press -1 -1 for exiting)(edge from 0 to node-1) and weight for Djikstra directed graph";
+		cin>>origin>>dest>>weight;
+		if(origin==-1 || dest==-1){
+			break;
+		}
+		gd.add_edge_directed_Djikstra(origin,dest,weight);
+		}
+		cout<<endl<<"Enter the source node"<<endl;
+		cin>>source;
+		gd.Djikstra_Algorithm(source);
 		break;
 	}
 	}while(option!=-1);

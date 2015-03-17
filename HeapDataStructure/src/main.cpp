@@ -1,30 +1,42 @@
 #include "Heap.h"
 
 int main(){
-	int size,option;
+	int size,option,index,newkey;
 	cout<<"Enter the size of array"<<endl;
 	cin>>size;
 	Heap h(size);
 	do{
-		cout<<endl<<"1.Enter the elements for making heap"<<endl;
-		cout<<endl<<"2.MAX HEAP"<<endl;
-		cout<<endl<<"3.MIN HEAP"<<endl;
-		cout<<endl<<"4.HEAP SORT"<<endl;
+		cout<<endl<<"1.MAX HEAP"<<endl;
+		cout<<endl<<"2.MIN HEAP"<<endl;
+		cout<<endl<<"3.HEAP SORT"<<endl;
+		cout<<endl<<"4.EXTRACT MAX"<<endl;
+		cout<<endl<<"5.INCREASE KEY"<<endl;
+		cout<<endl<<"6.PRINT HEAP"<<endl;
 		cout<<endl<<"Enter -1 to exit"<<endl;
 		cin>>option;
 		switch(option){
 		case 1:
-			h.input_array();
-
+			h.build_max_heap();
+			h.printHeap();
 			break;
 		case 2:
-			h.buildMaxHeap();
+			//h.buildMinHeap();
 			break;
 		case 3:
-			h.buildMinHeap();
+			h.heapSort();
 			break;
 		case 4:
-			h.heapSort();
+			cout<<endl<<"Maximum is:::"<<h.extract_max()<<endl;
+			break;
+		case 5:
+			cout<<endl<<"Enter the index starting from 0 to increase value of"<<endl;
+			cin>>index;
+			cout<<endl<<"Enter increased value"<<endl;
+			cin>>newkey;
+			h.increase_key(index,newkey);
+			break;
+		case 6:
+			h.printHeap();
 			break;
 		}
 			}while(option!=-1);

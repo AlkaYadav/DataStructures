@@ -1,91 +1,86 @@
 #include "Heap.h"
-
-Heap::Heap(int size){
-	a=new int[size];
-	this->size=size;
+void swap(int *num1,int *num2);
+Heap::Heap(int size_of_arr){
+	this->size=size_of_arr;
+	this->heapsize=size_of_arr;
+	heap_arr=new int[size];
 	for(int i=0;i<size;i++){
-		a[i]=0;
-	}
-}
-void Heap::input_array(){
-	cout<<endl<<"Enter the elements::"<<endl;
-	for(int i=0;i<size;i++){
-		cin>>a[i];
+		cin>>heap_arr[i];
 	}
 }
 
 //Max heapify function
-void Heap::max_Heapify(int max_size,int index){
+void Heap::max_heapify(int index,int tmp_size){
 	int left=2*index+1;
 	int right=2*index+2;
 	int largest=index;
-	if(left<max_size && a[largest]<a[left]){
+	if(left<tmp_size && heap_arr[left]>heap_arr[index]){
 		largest=left;
 	}
-	if(right<max_size && a[largest]<a[right]){
-		largest=right;
-	}
+	if(right<tmp_size && heap_arr[right]>heap_arr[largest]){
+			largest=right;
+		}
 	if(largest!=index){
-		cout<<endl<<"Swapped are:"<<a[largest]<<"and"<<a[index]<<endl;
-		int tmp=a[largest];
-		a[largest]=a[index];
-		a[index]=tmp;
-		max_Heapify(max_size,largest);
+		swap(&heap_arr[largest],&heap_arr[index]);
+		max_heapify(largest,tmp_size);
 	}
+
 }
 
-//Min heapify
-void Heap::min_Heapify(int max_size,int index){
-	int left=2*index+1;
-	int right=2*index+2;
-	int least=index;
-	if(left<max_size && a[least]>a[left]){
-		least=left;
-	}
-	if(right<max_size && a[least]>a[right]){
-		least=right;
-	}
-	if(least!=index){
-		int tmp=a[least];
-		a[least]=a[index];
-		a[index]=tmp;
-		max_Heapify(max_size,least);
-	}
+void swap(int *num1,int *num2){
+	int *tmp=new int(0);
+	*tmp=*num1;
+	*num1=*num2;
+	*num2=*tmp;
 }
 
-//Build min heap
-void Heap::buildMinHeap(){
-	for(int i=(size-1)/2;i>=0;i--){
-		min_Heapify(size,i);
+//Build max heap
+void Heap::build_max_heap(){
+	for(int i=((heapsize/2)-1);i>=0;i--){
+		max_heapify(i,heapsize);
 	}
-	printHeap();
-}
-void Heap::buildMaxHeap(){
-	for(int i=(size-1)/2;i>=0;i--){
-		max_Heapify(size,i);
-	}
-	printHeap();
 }
 
 //Heap sort
 void Heap::heapSort(){
-	int max_size=size;
-	int tmp;
-	buildMaxHeap();
-	for(int i=max_size-1;i>0;i--){
-		tmp=a[i];
-		a[i]=a[0];
-		a[0]=tmp;
-		max_size--;
-		max_Heapify(max_size,0);
+	build_max_heap();
+	int tmp_size=heapsize;
+	while(tmp_size){
+		swap(&heap_arr[0],&heap_arr[tmp_size-1]);
+		tmp_size--;
+		max_heapify(0,tmp_size);
 	}
 	printHeap();
 }
 
-//Print heap
 void Heap::printHeap(){
-	cout<<endl<<"Heap::"<<endl;
-	for(int i=0;i<size;i++){
-		cout<<a[i]<<" ";
+	cout<<endl<<"Elements are:::"<<endl;
+	for(int i=0;i<heapsize;i++){
+		cout<<heap_arr[i]<<" ";
+	}
+}
+
+//Extract max and delete it
+int Heap::extract_max(){
+	build_max_heap();
+	int max=heap_arr[0];
+	swap(&heap_arr[0],&heap_arr[heapsize-1]);
+	heapsize--;
+	max_heapify(0,heapsize);
+	return max;
+}
+
+//Increase value of key at an index
+void Heap::increase_key(int index,int newkey){
+	build_max_heap();
+	if(heap_arr[index]>=newkey){
+		return;
+	}
+	else{
+		heap_arr[index]=newkey;
+		while(index!=0 || heap_arr[index]>heap_arr[(index-1)/2]){
+			swap(&heap_arr[index],&heap_arr[(index-1)/2]);
+			index=(index-1)/2;
+		}
 	}
 }

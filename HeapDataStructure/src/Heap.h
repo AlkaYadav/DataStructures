@@ -17,5 +17,6 @@ class Heap{
 		void printHeap();
 		int extract_max();
 		void increase_key(int index,int newkey);
+		void insert_key(int value);
 };
 #endif

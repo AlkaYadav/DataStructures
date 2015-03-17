@@ -1,10 +1,10 @@
 #include "Heap.h"
 void swap(int *num1,int *num2);
 Heap::Heap(int size_of_arr){
-	this->size=size_of_arr;
+	this->size=10000;
 	this->heapsize=size_of_arr;
 	heap_arr=new int[size];
-	for(int i=0;i<size;i++){
+	for(int i=0;i<heapsize;i++){
 		cin>>heap_arr[i];
 	}
 }
@@ -83,4 +83,11 @@ void Heap::increase_key(int index,int newkey){
 			index=(index-1)/2;
 		}
 	}
+}
+
+//Insert a new value in heap
+void Heap::insert_key(int value){
+	heapsize++;
+	heap_arr[heapsize-1]=value;
+	build_max_heap();
 }

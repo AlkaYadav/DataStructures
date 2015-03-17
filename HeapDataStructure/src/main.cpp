@@ -11,7 +11,8 @@ int main(){
 		cout<<endl<<"3.HEAP SORT"<<endl;
 		cout<<endl<<"4.EXTRACT MAX"<<endl;
 		cout<<endl<<"5.INCREASE KEY"<<endl;
-		cout<<endl<<"6.PRINT HEAP"<<endl;
+		cout<<endl<<"6.INSERT NEW VALUE"<<endl;
+		cout<<endl<<"7.PRINT HEAP"<<endl;
 		cout<<endl<<"Enter -1 to exit"<<endl;
 		cin>>option;
 		switch(option){
@@ -36,6 +37,11 @@ int main(){
 			h.increase_key(index,newkey);
 			break;
 		case 6:
+			cout<<"Enter value to be inserted"<<endl;
+			cin>>newkey;
+			h.insert_key(newkey);
+			break;
+		case 7:
 			h.printHeap();
 			break;
 		}

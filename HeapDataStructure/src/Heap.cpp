@@ -85,6 +85,17 @@ void Heap::increase_key(int index,int newkey){
 	}
 }
 
+//Decrease value of a key at an index
+void Heap::decrease_key(int index,int newkey){
+	build_max_heap();
+		if(heap_arr[index]<=newkey){
+			return;
+		}
+		else{
+			heap_arr[index]=newkey;
+			max_heapify(index,heapsize);
+		}
+}
 //Insert a new value in heap
 void Heap::insert_key(int value){
 	heapsize++;

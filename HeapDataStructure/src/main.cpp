@@ -12,7 +12,8 @@ int main(){
 		cout<<endl<<"4.EXTRACT MAX"<<endl;
 		cout<<endl<<"5.INCREASE KEY"<<endl;
 		cout<<endl<<"6.INSERT NEW VALUE"<<endl;
-		cout<<endl<<"7.PRINT HEAP"<<endl;
+		cout<<endl<<"7.DECREASE KEY"<<endl;
+		cout<<endl<<"8.PRINT HEAP"<<endl;
 		cout<<endl<<"Enter -1 to exit"<<endl;
 		cin>>option;
 		switch(option){
@@ -42,6 +43,13 @@ int main(){
 			h.insert_key(newkey);
 			break;
 		case 7:
+			cout<<endl<<"Enter the index starting from 0 to decrease value of"<<endl;
+			cin>>index;
+			cout<<endl<<"Enter decreased value"<<endl;
+			cin>>newkey;
+			h.decrease_key(index,newkey);
+			break;
+		case 8:
 			h.printHeap();
 			break;
 		}

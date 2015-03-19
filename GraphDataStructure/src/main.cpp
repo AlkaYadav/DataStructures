@@ -11,7 +11,7 @@ int main(){
 	AdjacencyMatrix am(node);
 	AdjacencyList al(node);
 	BFS bfs;
-	DFS dfs(al);
+	DFS dfs;
 	Graph_Dijkstra gd(node);
 	do{
 	cout<<endl<<"1.Enter the edges for adjacency matrix"<<endl;
@@ -93,9 +93,7 @@ int main(){
 		bfs.BFS_Graph(al,source);
 		break;
 	case 9:
-		cout<<endl<<"Enter the source node"<<endl;
-		cin>>source;
-		dfs.DFS_Graph(al,source);
+		dfs.DFS_Graph(al);
 		break;
 	case 10:
 		max_edge=node*(node-1);

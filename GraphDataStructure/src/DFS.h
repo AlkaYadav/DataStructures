@@ -2,10 +2,14 @@
 #define __DFS_H_INCLUDED__   //   #define this so the compiler knows it has been included
 #include "AdjacencyList.h"
 class DFS{
-	bool *visited;
+	int time_v;
+	char *color;
+	int *parent;
+	int *discovery;
+	int *finish;
 public:
-	DFS(AdjacencyList al);
-	void DFS_Graph(AdjacencyList,int sourcenode);
+	void DFS_Graph(AdjacencyList);
+	void DFS_Visit(AdjacencyList al,int sourcenode);
 };
 
 #endif

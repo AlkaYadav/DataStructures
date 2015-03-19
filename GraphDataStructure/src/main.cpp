@@ -94,6 +94,12 @@ int main(){
 		break;
 	case 9:
 		dfs.DFS_Graph(al);
+		cout<<endl<<"Enter the source node to find path in DFS"<<endl;
+		cin>>source;
+		cout<<endl<<"Enter the destination node to find path in DFS"<<endl;
+		cin>>dest;
+		cout<<endl<<"Path is"<<endl;
+		dfs.printPath(source,dest);
 		break;
 	case 10:
 		max_edge=node*(node-1);

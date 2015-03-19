@@ -32,7 +32,6 @@ void DFS::DFS_Visit(AdjacencyList al,int sourcenode){
 		}
 		if(color[tmp->data]=='G'){
 			cout<<"Cycle detected"<<endl;
-			return;
 				}
 		tmp=tmp->next;
 	}
@@ -40,4 +39,20 @@ void DFS::DFS_Visit(AdjacencyList al,int sourcenode){
 	time_v=time_v+1;
 	finish[sourcenode]=time_v;
 	cout<<sourcenode<<" ) ";
+}
+
+void DFS::printPath(int source,int dest){
+	if(parent[dest]==-1 && parent[dest]!=source){
+		cout<<endl<<"No Path Exists"<<endl;
+		return;
+	}
+	if(parent[dest]!=source){
+		printPath(source,parent[dest]);
+		cout<<dest<<" ";
+	}
+	if(parent[dest]==source){
+			cout<<"Path found"<<endl;
+			cout<<source<<" ";
+
+		}
 }

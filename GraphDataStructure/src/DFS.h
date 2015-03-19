@@ -10,7 +10,7 @@ class DFS{
 public:
 	void DFS_Graph(AdjacencyList);
 	void DFS_Visit(AdjacencyList al,int sourcenode);
-
+	void printPath(int source,int dest);
 };
 
 #endif

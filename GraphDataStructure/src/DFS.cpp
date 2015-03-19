@@ -30,6 +30,10 @@ void DFS::DFS_Visit(AdjacencyList al,int sourcenode){
 			parent[tmp->data]=sourcenode;
 			DFS_Visit(al,tmp->data);
 		}
+		if(color[tmp->data]=='G'){
+			cout<<"Cycle detected"<<endl;
+			return;
+				}
 		tmp=tmp->next;
 	}
 	color[sourcenode]='B';

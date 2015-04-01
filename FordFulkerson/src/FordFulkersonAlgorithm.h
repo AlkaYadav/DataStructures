@@ -19,5 +19,6 @@ public:
 class FordFulkerson{
 public:
 	int FordFulkersonAlgorithm(AdjacencyMatrix am,int src,int dest);
+	void dfs(AdjacencyMatrix am,int residual[][V],int src,int *visited);
 };
 #endif

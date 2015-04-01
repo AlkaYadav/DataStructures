@@ -75,6 +75,7 @@ int FordFulkerson::FordFulkersonAlgorithm(AdjacencyMatrix am,int src,int sink){
 	int min_flow=INT_MAX;
 	int max_flow=0;
 	int *parent=new int[am.node];
+	int *visited=new int[am.node];
 	int residual[V][V];
 	for(int i=0;i<am.node;i++){
 		parent[i]=-1;
@@ -95,5 +96,27 @@ int FordFulkerson::FordFulkersonAlgorithm(AdjacencyMatrix am,int src,int sink){
 		}
 		max_flow+=min_flow;
 	}
+	for(int i=0;i<am.node;i++){
+		visited[i]=0;
+	}
+	dfs(am,residual,src,visited);
+	cout<<endl<<"Minimum cut edges"<<endl;
+	for(int i=0;i<am.node;i++){
+		for(int j=0;j<am.node;j++){
+			if(visited[i] && !visited[j] &&am.adj[i][j]){
+				cout<<endl<<i<<"->"<<j<<endl;
+			}
+		}
+	}
 return max_flow;
+}
+
+void FordFulkerson::dfs(AdjacencyMatrix am,int residual[][V],int src,int *visited){
+	visited[src]=1;
+	for(int i=0;i<am.node;i++){
+		if(residual[src][i] && visited[i]==0){
+			visited[i]=1;
+			dfs(am,residual,i,visited);
+		}
+	}
 }

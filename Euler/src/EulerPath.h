@@ -9,15 +9,18 @@ class Graph{
 public:
 	Graph(int nodes);
 	void addEdge(int node1,int node2);
-	void DFS(int src,int *visited);
+	void rmEdge(int node1,int node2);
+	void printGraph();
 	friend class EulerPath;
 };
 class EulerPath{
-
+private:
+	bool isConnected(Graph);
+	int DFSCount(Graph g,int,int *);
+	void printEulerPathOrCircuitUtil(Graph g,int source);
+	bool isValidNextEdge(Graph g,int source,int dest);
 public:
 	bool isEulerian(Graph);
-	bool isConnected(Graph);
-	bool hasEulerPath(Graph);
-	void printEulerPathOrCircuit(Graph);
+	void printEulerPathOrCircuit(Graph g);
 };
 #endif

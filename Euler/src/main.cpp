@@ -8,7 +8,8 @@ int main(){
 	do{
 		cout<<endl<<"1.Enter the edges for adjacency matrix"<<endl;
 		cout<<endl<<"2.Find if Eulerian cycle exists"<<endl;
-		cout<<endl<<"3.Find if Eulerian path exists"<<endl;
+		cout<<endl<<"3.Print Eulerian Path if Eulerian path exists"<<endl;
+		cout<<endl<<"4.Print Graph"<<endl;
 		cout<<endl<<"Enter -1 to exit"<<endl;
 			cin>>option;
 			switch(option){
@@ -24,20 +25,13 @@ int main(){
 				}
 				break;
 			case 2:
-				if(ep.isEulerian(g)){
-					cout<<endl<<"Graph has Eulerian cycle"<<endl;
-				}
-				else{
-					cout<<endl<<"Graph doesn't have Eulerian cycle"<<endl;
-				}
+				cout<<ep.isEulerian(g);
 				break;
 			case 3:
-				if(ep.hasEulerPath(g)){
-					cout<<endl<<"Graph has Eulerian path"<<endl;
-				}
-				else{
-					cout<<endl<<"Graph doesn't have Eulerian path"<<endl;
-				}
+				ep.printEulerPathOrCircuit(g);
+				break;
+			case 4:
+				g.printGraph();
 				break;
 			}
 				}while(option!=-1);

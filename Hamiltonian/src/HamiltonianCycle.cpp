@@ -83,6 +83,7 @@ bool HamiltonianCycle::HamiltonianCycle::isHamiltonian(Graph g){
 	path[0]=0;
 	pos=1;
 	if(hamiltonianCycle(g,path,pos)){
+		cout<<"Cycle and path exists"<<endl;
 		printHamiltonianPath(g,path);
 		return true;
 	}

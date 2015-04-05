@@ -24,6 +24,7 @@ int main(){
 				}
 				break;
 			case 2:
+				cout<<endl<<"Hamiltonian Cycle:"<<endl;
 				hc.isHamiltonian(g);
 				break;
 			case 3:

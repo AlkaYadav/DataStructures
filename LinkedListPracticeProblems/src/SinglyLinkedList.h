@@ -10,16 +10,24 @@
 
 #include "Node.h"
 #include<iostream>
+#include<stack>
 using namespace std;
 
 class SinglyLinkedList{
 private:
 	SingleNode *head;
+
+	void reverseSinglyLinkedList_recursiveHelper(SingleNode *head);
 public:
 	SinglyLinkedList();
 	void insertAtEnd(int data);
-    void reverseSinglyLinkedList(SinglyLinkedList l);
-    void printSinglyLinkedList(SinglyLinkedList sl);
+    void reverseSinglyLinkedList();
+    void reverseSinglyLinkedList_recursive();
+    bool checkIfListPalindrome();
+    bool checkIfListPalindrome_usingStack();
+    bool checkIfListPalindrome_usingNoStorage();
+    void printSinglyLinkedList();
+    int lengthOfLinkedList();
 };
 
 

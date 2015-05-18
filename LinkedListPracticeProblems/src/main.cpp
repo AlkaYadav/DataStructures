@@ -3,6 +3,7 @@
 int main(){
 	SinglyLinkedList singlyLinkedList;
 	SinglyLinkedList dummyLinkedList;
+	SinglyLinkedList sortedLinkedList;
 	int choice,num,data;
 	char response;
 	do{
@@ -14,6 +15,7 @@ int main(){
 		cout<<"6. Check if list is palindrome using no storage--"<<endl;
 		cout<<"7. Print Singly linked list"<<endl;
 		cout<<"8. Check if a loop exist in Singly linked list"<<endl;
+		cout<<"9. Create a sorted singly linked list"<<endl;
 		cout<<"Enter one of the choices"<<endl;
 		cin>>choice;
 		switch(choice){
@@ -53,6 +55,16 @@ int main(){
 			dummyLinkedList.createDummyList();
 			cout<<"Loop exist is(Loop is present):"<<dummyLinkedList.checkIfLoopInList()<<endl;
 			cout<<"Loop exist is(Loop is not present):"<<singlyLinkedList.checkIfLoopInList()<<endl;
+			break;
+		case 9:
+			cout<<"Enter the number of nodes to insert in sorted manner"<<endl;
+			cin>>num;
+			for(int i=0;i<num;i++){
+				cout<<"Enter data for node"<<endl;
+				cin>>data;
+				sortedLinkedList.insertSortedLinkedList(data);
+			}
+			sortedLinkedList.printSinglyLinkedList();
 			break;
 		}
 

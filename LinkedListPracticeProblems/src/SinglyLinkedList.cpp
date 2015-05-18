@@ -20,6 +20,40 @@ void SinglyLinkedList::insertAtEnd(int data){
 	}
 }
 
+void SinglyLinkedList::insertSortedLinkedList(int data){
+	SingleNode *node = new SingleNode();
+	node->data = data;
+	if(head==NULL){
+			head = node;
+			node -> next = NULL;
+		}
+	else{
+		if(data<=head->data){
+			node->next=head;
+			head=node;
+			//case 1:insert at head
+			return;
+		}
+		SingleNode *tmp = head;
+		SingleNode *next = NULL;
+		while(true){
+			//case 2:insert at end
+			if(tmp->next == NULL){
+				tmp->next=node;
+				node->next=NULL;
+				break;
+			}
+			//case 3:insert in between
+			if(  tmp->data<=data && data< tmp->next->data){
+				next = tmp->next;
+				tmp->next=node;
+				node->next=next;
+				break;
+			}
+			tmp=tmp->next;
+}
+	}
+}
 bool SinglyLinkedList::checkIfListPalindrome(){
 	SinglyLinkedList reversed;
 	SingleNode *tmp = head;

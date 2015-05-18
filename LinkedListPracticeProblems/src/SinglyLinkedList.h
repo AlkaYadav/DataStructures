@@ -23,6 +23,7 @@ private:
 public:
 	SinglyLinkedList();
 	void insertAtEnd(int data);
+	void insertSortedLinkedList(int data);
     void reverseSinglyLinkedList();
     void reverseSinglyLinkedList_recursive();
     bool checkIfListPalindrome();

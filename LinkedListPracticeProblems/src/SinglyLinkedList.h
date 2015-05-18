@@ -18,7 +18,7 @@ private:
 	SingleNode *head;
 
 	void reverseSinglyLinkedList_recursiveHelper(SingleNode *head);
-
+	void swap(int*,int*);
 
 public:
 	SinglyLinkedList();
@@ -36,6 +36,7 @@ public:
     void deleteLinkedList();
     void printNthNodeFromEndLinkedList(int n);
     void deleteAlternateNodes();
+    void pairwiseSwapElementsLinkedList();
 };
 
 

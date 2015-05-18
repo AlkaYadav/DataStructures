@@ -57,7 +57,6 @@ void SinglyLinkedList::insertSortedLinkedList(int data){
 bool SinglyLinkedList::checkIfListPalindrome(){
 	SinglyLinkedList reversed;
 	SingleNode *tmp = head;
-
 	while(tmp != NULL){
 		reversed.insertAtEnd(tmp -> data);
 		tmp = tmp -> next;
@@ -131,11 +130,11 @@ void SinglyLinkedList::reverseSinglyLinkedList(){
 
 //Reverse singly linked list using recursion
 void SinglyLinkedList::reverseSinglyLinkedList_recursive(){
-	reverseSinglyLinkedList_recursiveHelper(head);
+      reverseSinglyLinkedList_recursiveHelper(head);
 }
 
 void SinglyLinkedList::reverseSinglyLinkedList_recursiveHelper(SingleNode *head_node){
-	if(head_node->next == NULL){
+	if(head_node ==NULL || head_node->next == NULL){
 		head=head_node;
 		return;
 	}
@@ -226,6 +225,7 @@ void SinglyLinkedList::createDummyList(){
 	int nodes,data;
 	cout<<"Enter the number of nodes"<<endl;
 	cin>>nodes;
+	head=NULL;
 	while(nodes){
 		cout<<"Enter data"<<endl;
 		cin>>data;
@@ -234,10 +234,12 @@ void SinglyLinkedList::createDummyList(){
 	}
 	//Point the last node to head to create a loop
 	SingleNode *tmp=head;
+	if(tmp){
 	while(tmp->next){
 		tmp=tmp->next;
 	}
 	tmp->next=head;
+	}
 }
 //Check if a loop exists in Singly Linked List
 bool SinglyLinkedList::checkIfLoopInList(){
@@ -313,4 +315,17 @@ void SinglyLinkedList::deleteAlternateNodes(){
 		deletedNode=tmp->next;
 	}
 
+}
+void SinglyLinkedList::swap(int* a,int *b){
+	int tmp;
+	tmp=*a;
+	*a=*b;
+	*b=tmp;
+}
+void SinglyLinkedList::pairwiseSwapElementsLinkedList(){
+	SingleNode *tmp=head;
+	while(tmp && tmp->next){
+		swap(&tmp->data,&tmp->next->data);
+		tmp=tmp->next->next;
+	}
 }

@@ -329,3 +329,34 @@ void SinglyLinkedList::pairwiseSwapElementsLinkedList(){
 		tmp=tmp->next->next;
 	}
 }
+
+SinglyLinkedList SinglyLinkedList::mergeTwoSortedLinkedList(SinglyLinkedList a,SinglyLinkedList b){
+	SinglyLinkedList c;
+	SingleNode *head1=a.head;
+	SingleNode *head2=b.head;
+	SingleNode *head3=c.head;
+	while(head1 && head2){
+		if(head1->data <= head2->data){
+			c.insertAtEnd(head1->data);
+			head1=head1->next;
+		}
+		else{
+			c.insertAtEnd(head2->data);
+			head2=head2->next;
+		}
+	}
+	if(head1){
+		while(head1){
+			c.insertAtEnd(head1->data);
+			head1=head1->next;
+		}
+	}
+
+	if(head2){
+			while(head2){
+				c.insertAtEnd(head2->data);
+				head2=head2->next;
+			}
+		}
+	return c;
+}

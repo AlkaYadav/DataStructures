@@ -37,6 +37,7 @@ public:
     void printNthNodeFromEndLinkedList(int n);
     void deleteAlternateNodes();
     void pairwiseSwapElementsLinkedList();
+    SinglyLinkedList mergeTwoSortedLinkedList(SinglyLinkedList a,SinglyLinkedList b);
 };
 
 

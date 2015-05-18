@@ -4,6 +4,8 @@ int main(){
 	SinglyLinkedList singlyLinkedList;
 	SinglyLinkedList dummyLinkedList;
 	SinglyLinkedList sortedLinkedList;
+	SinglyLinkedList sortedLinkedList2;
+	SinglyLinkedList mergedLinkedList;
 	int choice,num,data,n;
 	char response;
 	do{
@@ -20,6 +22,7 @@ int main(){
 		cout<<"11. Print nth node from end in singly linked list"<<endl;
 		cout<<"12. Delete alternate nodes from a singly linked list"<<endl;
 		cout<<"13. Pairwise swap elements in a singly linked list"<<endl;
+		cout<<"14. Merge two sorted singly linked lists"<<endl;
 		cout<<"Enter one of the choices"<<endl;
 		cin>>choice;
 		switch(choice){
@@ -85,6 +88,28 @@ int main(){
 		case 13:
 			singlyLinkedList.pairwiseSwapElementsLinkedList();
 			singlyLinkedList.printSinglyLinkedList();
+			break;
+		case 14:
+			cout<<"Enter the number of nodes to insert in sorted manner"<<endl;
+			cin>>num;
+			for(int i=0;i<num;i++){
+				cout<<"Enter data for node"<<endl;
+				cin>>data;
+				sortedLinkedList.insertSortedLinkedList(data);
+			}
+			sortedLinkedList.printSinglyLinkedList();
+
+			cout<<"Enter the number of nodes to insert in sorted manner"<<endl;
+			cin>>num;
+			for(int i=0;i<num;i++){
+				cout<<"Enter data for node"<<endl;
+				cin>>data;
+				sortedLinkedList2.insertSortedLinkedList(data);
+			}
+			sortedLinkedList2.printSinglyLinkedList();
+
+			mergedLinkedList=singlyLinkedList.mergeTwoSortedLinkedList(sortedLinkedList,sortedLinkedList2);
+			mergedLinkedList.printSinglyLinkedList();
 			break;
 		}
 

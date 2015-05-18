@@ -264,3 +264,30 @@ void SinglyLinkedList::deleteLinkedList(){
 	}
 	head=NULL;
 }
+
+//Print Nth node from end in a singly linked list
+/*
+ * Maintain two pointers – reference pointer and main pointer.
+ *  Initialize both reference and main pointers to head.
+ *  First move reference pointer to n nodes from head.
+ *  Now move both pointers one by one until reference pointer reaches end.
+ * Now main pointer will point to nth node from the end. Return main pointer.
+ */
+void SinglyLinkedList::printNthNodeFromEndLinkedList(int n){
+	SingleNode *refptr=head;
+	SingleNode *mainptr=head;
+	int count =1;
+	if(n>lengthOfLinkedList() || n<=0){
+		cout<<"Number is not correct.Must be from 1 to length "<<endl;
+		return;
+	}
+	while(count <= n){
+		refptr = refptr->next;
+		count ++;
+	}
+	while(refptr){
+		refptr = refptr->next;
+		mainptr = mainptr->next;
+	}
+	cout<<"Data is ::"<<mainptr->data;
+}

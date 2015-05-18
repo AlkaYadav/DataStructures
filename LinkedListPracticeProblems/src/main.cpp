@@ -4,7 +4,7 @@ int main(){
 	SinglyLinkedList singlyLinkedList;
 	SinglyLinkedList dummyLinkedList;
 	SinglyLinkedList sortedLinkedList;
-	int choice,num,data;
+	int choice,num,data,n;
 	char response;
 	do{
 		cout<<"1. Create a singly linked list"<<endl;
@@ -17,6 +17,7 @@ int main(){
 		cout<<"8. Check if a loop exist in Singly linked list"<<endl;
 		cout<<"9. Create a sorted singly linked list"<<endl;
 		cout<<"10. Delete singly linked list"<<endl;
+		cout<<"11. Print nth node from end in singly linked list"<<endl;
 		cout<<"Enter one of the choices"<<endl;
 		cin>>choice;
 		switch(choice){
@@ -69,6 +70,11 @@ int main(){
 			break;
 		case 10:
 			singlyLinkedList.deleteLinkedList();
+			break;
+		case 11:
+			cout<<"Enter nth number"<<endl;
+			cin>>n;
+			singlyLinkedList.printNthNodeFromEndLinkedList(n);
 			break;
 		}
 

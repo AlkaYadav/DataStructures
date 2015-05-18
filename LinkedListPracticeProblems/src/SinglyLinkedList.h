@@ -34,6 +34,7 @@ public:
     void printSinglyLinkedList();
     int lengthOfLinkedList();
     void deleteLinkedList();
+    void printNthNodeFromEndLinkedList(int n);
 };
 
 

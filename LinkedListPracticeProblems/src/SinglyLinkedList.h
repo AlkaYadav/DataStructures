@@ -18,6 +18,8 @@ private:
 	SingleNode *head;
 
 	void reverseSinglyLinkedList_recursiveHelper(SingleNode *head);
+
+
 public:
 	SinglyLinkedList();
 	void insertAtEnd(int data);
@@ -26,6 +28,8 @@ public:
     bool checkIfListPalindrome();
     bool checkIfListPalindrome_usingStack();
     bool checkIfListPalindrome_usingNoStorage();
+    void createDummyList();
+    bool checkIfLoopInList();
     void printSinglyLinkedList();
     int lengthOfLinkedList();
 };

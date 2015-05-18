@@ -2,6 +2,7 @@
 
 int main(){
 	SinglyLinkedList singlyLinkedList;
+	SinglyLinkedList dummyLinkedList;
 	int choice,num,data;
 	char response;
 	do{
@@ -12,6 +13,7 @@ int main(){
 		cout<<"5. Check if list is palindrome using stack--"<<endl;
 		cout<<"6. Check if list is palindrome using no storage--"<<endl;
 		cout<<"7. Print Singly linked list"<<endl;
+		cout<<"8. Check if a loop exist in Singly linked list"<<endl;
 		cout<<"Enter one of the choices"<<endl;
 		cin>>choice;
 		switch(choice){
@@ -46,6 +48,11 @@ int main(){
 			break;
 		case 7:
 			singlyLinkedList.printSinglyLinkedList();
+			break;
+		case 8:
+			dummyLinkedList.createDummyList();
+			cout<<"Loop exist is(Loop is present):"<<dummyLinkedList.checkIfLoopInList()<<endl;
+			cout<<"Loop exist is(Loop is not present):"<<singlyLinkedList.checkIfLoopInList()<<endl;
 			break;
 		}
 

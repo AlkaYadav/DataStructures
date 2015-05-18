@@ -187,3 +187,34 @@ bool SinglyLinkedList::checkIfListPalindrome_usingNoStorage(){
    else
 	   return true;
 }
+
+void SinglyLinkedList::createDummyList(){
+	int nodes,data;
+	cout<<"Enter the number of nodes"<<endl;
+	cin>>nodes;
+	while(nodes){
+		cout<<"Enter data"<<endl;
+		cin>>data;
+		insertAtEnd(data);
+		nodes--;
+	}
+	//Point the last node to head to create a loop
+	SingleNode *tmp=head;
+	while(tmp->next){
+		tmp=tmp->next;
+	}
+	tmp->next=head;
+}
+//Check if a loop exists in Singly Linked List
+bool SinglyLinkedList::checkIfLoopInList(){
+	SingleNode *slowptr = head;
+	SingleNode *fastptr = head;
+	while(slowptr && fastptr){
+		slowptr=slowptr->next;
+		fastptr=fastptr->next->next;
+		if(slowptr == fastptr){
+			return true;
+		}
+	}
+	return false;
+}

@@ -18,6 +18,7 @@ int main(){
 		cout<<"9. Create a sorted singly linked list"<<endl;
 		cout<<"10. Delete singly linked list"<<endl;
 		cout<<"11. Print nth node from end in singly linked list"<<endl;
+		cout<<"12. Delete alternate nodes from a singly linked list"<<endl;
 		cout<<"Enter one of the choices"<<endl;
 		cin>>choice;
 		switch(choice){
@@ -76,6 +77,10 @@ int main(){
 			cin>>n;
 			singlyLinkedList.printNthNodeFromEndLinkedList(n);
 			break;
+		case 12:
+					singlyLinkedList.deleteAlternateNodes();
+					singlyLinkedList.printSinglyLinkedList();
+					break;
 		}
 
 		cout<<endl<<"Do you want to continue?Enter y or Y to continue"<<endl;

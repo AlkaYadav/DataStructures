@@ -291,3 +291,26 @@ void SinglyLinkedList::printNthNodeFromEndLinkedList(int n){
 	}
 	cout<<"Data is ::"<<mainptr->data;
 }
+
+//Delete alternate nodes from a singly linked list
+void SinglyLinkedList::deleteAlternateNodes(){
+	if(head == NULL){
+		cout<<"List empty.Nothing to delete"<<endl;
+		return;
+	}
+	SingleNode *tmp=head;
+	SingleNode *deletedNode=tmp->next;
+	while(deletedNode){
+		SingleNode *tmp2=deletedNode;
+		if(deletedNode->next == NULL){
+			tmp->next = NULL;
+			free(tmp2);
+			break;
+		}
+		tmp->next=deletedNode->next;
+		free(tmp2);
+		tmp=tmp->next;
+		deletedNode=tmp->next;
+	}
+
+}

@@ -16,6 +16,7 @@ int main(){
 		cout<<"7. Print Singly linked list"<<endl;
 		cout<<"8. Check if a loop exist in Singly linked list"<<endl;
 		cout<<"9. Create a sorted singly linked list"<<endl;
+		cout<<"10. Delete singly linked list"<<endl;
 		cout<<"Enter one of the choices"<<endl;
 		cin>>choice;
 		switch(choice){
@@ -65,6 +66,9 @@ int main(){
 				sortedLinkedList.insertSortedLinkedList(data);
 			}
 			sortedLinkedList.printSinglyLinkedList();
+			break;
+		case 10:
+			singlyLinkedList.deleteLinkedList();
 			break;
 		}
 

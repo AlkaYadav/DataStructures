@@ -252,3 +252,15 @@ bool SinglyLinkedList::checkIfLoopInList(){
 	}
 	return false;
 }
+
+//Delete a linked list
+void SinglyLinkedList::deleteLinkedList(){
+	SingleNode *tmp=head;
+	SingleNode *deletenode;
+	while(tmp){
+		deletenode=tmp;
+		tmp=tmp->next;
+		free(deletenode);
+	}
+	head=NULL;
+}

@@ -33,6 +33,7 @@ public:
     bool checkIfLoopInList();
     void printSinglyLinkedList();
     int lengthOfLinkedList();
+    void deleteLinkedList();
 };
 
 

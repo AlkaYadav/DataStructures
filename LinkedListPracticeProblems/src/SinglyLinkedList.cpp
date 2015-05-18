@@ -107,8 +107,7 @@ void SinglyLinkedList::reverseSinglyLinkedList_recursiveHelper(SingleNode *head_
 	}
 	else{
 		reverseSinglyLinkedList_recursiveHelper(head_node->next);
-		SingleNode *next=head_node->next;
-		next->next = head_node;
+		head_node->next->next = head_node;
 		head_node->next=NULL;
 	}
 }

@@ -101,19 +101,15 @@ void SinglyLinkedList::reverseSinglyLinkedList_recursive(){
 }
 
 void SinglyLinkedList::reverseSinglyLinkedList_recursiveHelper(SingleNode *head_node){
-	if(head_node == NULL){
+	if(head_node->next == NULL){
+		head=head_node;
 		return;
 	}
 	else{
-		SingleNode *prev=NULL;
-		SingleNode *next;
-		prev = head_node;
-		next = head_node ->next;
-		head_node -> next = prev;
-		cout<<"Previous node is:"<<prev->data;
-		cout<<"Next node is:"<<next ->data;
-		reverseSinglyLinkedList_recursiveHelper(next);
-		head = prev;
+		reverseSinglyLinkedList_recursiveHelper(head_node->next);
+		SingleNode *next=head_node->next;
+		next->next = head_node;
+		head_node->next=NULL;
 	}
 }
 

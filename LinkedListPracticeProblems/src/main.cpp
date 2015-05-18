@@ -19,6 +19,7 @@ int main(){
 		cout<<"10. Delete singly linked list"<<endl;
 		cout<<"11. Print nth node from end in singly linked list"<<endl;
 		cout<<"12. Delete alternate nodes from a singly linked list"<<endl;
+		cout<<"13. Pairwise swap elements in a singly linked list"<<endl;
 		cout<<"Enter one of the choices"<<endl;
 		cin>>choice;
 		switch(choice){
@@ -78,9 +79,13 @@ int main(){
 			singlyLinkedList.printNthNodeFromEndLinkedList(n);
 			break;
 		case 12:
-					singlyLinkedList.deleteAlternateNodes();
-					singlyLinkedList.printSinglyLinkedList();
-					break;
+			singlyLinkedList.deleteAlternateNodes();
+			singlyLinkedList.printSinglyLinkedList();
+			break;
+		case 13:
+			singlyLinkedList.pairwiseSwapElementsLinkedList();
+			singlyLinkedList.printSinglyLinkedList();
+			break;
 		}
 
 		cout<<endl<<"Do you want to continue?Enter y or Y to continue"<<endl;

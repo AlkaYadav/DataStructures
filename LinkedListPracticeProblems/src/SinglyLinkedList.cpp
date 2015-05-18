@@ -314,3 +314,16 @@ void SinglyLinkedList::deleteAlternateNodes(){
 	}
 
 }
+void SinglyLinkedList::swap(int* a,int *b){
+	int tmp;
+	tmp=*a;
+	*a=*b;
+	*b=tmp;
+}
+void SinglyLinkedList::pairwiseSwapElementsLinkedList(){
+	SingleNode *tmp=head;
+	while(tmp && tmp->next){
+		swap(&tmp->data,&tmp->next->data);
+		tmp=tmp->next->next;
+	}
+}

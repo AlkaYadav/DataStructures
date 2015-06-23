@@ -52,5 +52,5 @@ void Graph::printGraph(){
 			cout<<i<<"->"<<tmp->data<<endl;
 			tmp=tmp->next;
 		}
-	}
+}
 }

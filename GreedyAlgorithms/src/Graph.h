@@ -1,7 +1,7 @@
 #include<iostream>
 #include<stdio.h>
 using namespace std;
-
+//Graph uses Adjacency List
 class Node{
 	int data;
 	Node *next;

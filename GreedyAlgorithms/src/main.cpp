@@ -5,19 +5,29 @@
  *      Author: alkyadav
  */
 #include "Graph.h"
-
+#include "UnionFind.h"
 int main(){
 
 
 	int vertices,destination,source,response;
+	int vertex_edgelist,edges;
 	cout<<endl<<"Enter the number of vertices"<<endl;
 	cin>>vertices;
 	Graph g(vertices);
+	cout<<endl<<"Enter the number of vertices for edgelist graph"<<endl;
+	cin>>vertex_edgelist;
+	cout<<endl<<"Enter the number of edges for edgelist graph"<<endl;
+	cin>>edges;
+	Graph_EdgeList ge(vertex_edgelist,edges);
+	UnionFind uf;
 	int option;
 		do{
 		cout<<endl<<"Menu:"<<endl;
 		cout<<endl<<"1. Insert edge in Graph"<<endl;
 		cout<<endl<<"2. Print Graph"<<endl;
+		cout<<endl<<"3. Insert edge in EdgeListGraph"<<endl;
+		cout<<endl<<"4. Print EdgeListGraph"<<endl;
+		cout<<endl<<"5. Union Find algorithm to detect cycle in EdgeListGraph"<<endl;
 		cout<<endl<<"-1. Enter -1 to quit"<<endl;
 		cin>>option;
 		switch(option){
@@ -37,6 +47,15 @@ int main(){
 						case 2:
 							cout<<"Graph is:"<<endl;
 							g.printGraph();
+							break;
+						case 3:
+							ge.addEdges();
+							break;
+						case 4:
+							ge.printGraph();
+							break;
+						case 5:
+							uf.isCycle(ge);
 							break;
 		             }
           }while(option !=-1);

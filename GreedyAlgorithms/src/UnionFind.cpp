@@ -75,3 +75,52 @@ void UnionFind::unionVertices(int *parent,int node1,int node2){
 	int yfind=find(parent,node2);
 	parent[yfind]=xfind;
 }
+
+
+//Detect cycle using Union-find algorithm using union by rank and path compression
+int UnionFind::isCycle_UnionByRankPathCompression(Graph_EdgeList ge){
+	int *parent,*rank;
+	parent=new int[ge.vertices];
+	rank=new int[ge.vertices];
+	for(int i=0;i<ge.vertices;i++){
+		parent[i]=-1;
+		rank[i]=0;
+	}
+	for(int j=0;j<ge.edgeCount;j++){
+		int source=ge.edges[j]->source;
+		int destination=ge.edges[j]->destination;
+		int xfind=find_pathcompression(parent,source);
+		int yfind=find_pathcompression(parent,destination);
+		if(xfind==yfind){
+			cout<<"Cycle detected"<<endl;
+			return 1;
+		}
+		unionVertices_rank(parent,rank,source,destination);
+	}
+	return 0;
+}
+
+
+int UnionFind::find_pathcompression(int *parent,int node){
+	if(parent[node]==-1){
+		return node;
+	}
+	return find_pathcompression(parent,parent[node]);
+}
+
+
+void UnionFind::unionVertices_rank(int *parent,int *rank,int node1,int node2){
+	int xfind=find_pathcompression(parent,node1);
+	int yfind=find_pathcompression(parent,node2);
+
+	if(rank[node1]<rank[node2]){
+		parent[xfind]=yfind;
+	}
+	else if(rank[node1]>rank[node2]){
+		parent[yfind]=xfind;
+	}
+	else if(rank[node1]==rank[node2]){
+		parent[xfind]=yfind;
+		rank[node2]=rank[node2]+1;
+	}
+}

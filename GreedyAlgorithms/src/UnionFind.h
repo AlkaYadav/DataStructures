@@ -34,8 +34,15 @@ private:
 	int find(int *parent,int node);
 	void unionVertices(int *parent,int node1,int node2);
 
+	//Union find algorithm using union by rank and path compression
+	int find_pathcompression(int *parent,int node);
+	void unionVertices_rank(int *parent,int *rank,int node1,int node2);
+
 public:
 	int isCycle(Graph_EdgeList ge);
+
+	//Detect cycle in undirected graph using union by rank and path compression
+	int isCycle_UnionByRankPathCompression(Graph_EdgeList ge);
 };
 
 #endif /* UNIONFIND_H_ */

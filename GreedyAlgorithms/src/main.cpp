@@ -28,6 +28,7 @@ int main(){
 		cout<<endl<<"3. Insert edge in EdgeListGraph"<<endl;
 		cout<<endl<<"4. Print EdgeListGraph"<<endl;
 		cout<<endl<<"5. Union Find algorithm to detect cycle in EdgeListGraph"<<endl;
+		cout<<endl<<"6. Union Find algorithm to detect cycle in EdgeListGraph(Union by rank and PathCompression)"<<endl;
 		cout<<endl<<"-1. Enter -1 to quit"<<endl;
 		cin>>option;
 		switch(option){
@@ -56,6 +57,9 @@ int main(){
 							break;
 						case 5:
 							uf.isCycle(ge);
+							break;
+						case 6:
+							uf.isCycle_UnionByRankPathCompression(ge);
 							break;
 		             }
           }while(option !=-1);

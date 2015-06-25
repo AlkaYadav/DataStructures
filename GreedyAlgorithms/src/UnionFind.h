@@ -14,8 +14,10 @@ using namespace std;
 class Edge{
 	int source;
 	int destination;
+	int weight;
 	friend class Graph_EdgeList;
 	friend class UnionFind;
+	friend class KruskalMST;
 };
 
 class Graph_EdgeList{
@@ -27,6 +29,7 @@ public:
 	void addEdges();
 	void printGraph();
 	friend class UnionFind;
+	friend class KruskalMST;
 };
 
 class UnionFind{
@@ -43,6 +46,7 @@ public:
 
 	//Detect cycle in undirected graph using union by rank and path compression
 	int isCycle_UnionByRankPathCompression(Graph_EdgeList ge);
+	friend class KruskalMST;
 };
 
 #endif /* UNIONFIND_H_ */

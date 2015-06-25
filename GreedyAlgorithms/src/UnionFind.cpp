@@ -15,14 +15,16 @@ Graph_EdgeList::Graph_EdgeList(int vertices,int numberOfEdges){
 
 //Add edges in edge list
 void Graph_EdgeList::addEdges(){
-	int source,destination;
+	int source,destination,weight;
 	for(int i=0;i<edgeCount;i++){
 		cout<<"Enter source vertex"<<endl;
 		cin>>source;
 		cout<<"Enter destination vertex"<<endl;
 		cin>>destination;
-		if(source<0 || source>vertices-1 || destination<0 || destination>vertices-1){
-				cout<<"Invalid source or destination.Insert in range 0 to "<<vertices-1<<endl;
+		cout<<"Enter weight of edge"<<endl;
+		cin>>weight;
+		if(source<0 || source>vertices-1 || destination<0 || destination>vertices-1|| weight<0){
+				cout<<"Invalid weight or Invalid source or destination.Insert in range 0 to "<<vertices-1<<endl;
 				i--;
 			}
 		else{
@@ -31,6 +33,7 @@ void Graph_EdgeList::addEdges(){
 			edges[i]=new Edge();
 			edges[i]->source=source;
 			edges[i]->destination=destination;
+			edges[i]->weight=weight;
 			cout<<"Inserted edge"<<endl;
 		}
 	}
@@ -38,7 +41,7 @@ void Graph_EdgeList::addEdges(){
 
 void Graph_EdgeList::printGraph(){
 	for(int i=0;i<edgeCount;i++){
-		cout<<edges[i]->source<<"->"<<edges[i]->destination<<endl;
+		cout<<edges[i]->source<<"->"<<edges[i]->destination<<"Weight:"<<edges[i]->weight<<endl;
 	}
 }
 

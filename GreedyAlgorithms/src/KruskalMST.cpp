@@ -1,11 +1,9 @@
 #include "KruskalMST.h"
 int KruskalMST::myComp(const void *a,const void *b){
-	cout<<"In comparing "<<(((Edge *)a)->weight);
-	cout<<"In comparing "<<(((Edge *)b)->weight);
-	return (((Edge *)a)->weight) > (((Edge *)b)->weight);
+	return (((Edge *)a)->weight) - (((Edge *)b)->weight);
 }
 void KruskalMST::printKruskalMST(Graph_EdgeList ge){
-	//TODO:Sort edges according to edge weights
+
 	qsort(ge.edges,ge.edgeCount,sizeof(ge.edges[0]),myComp);
 	cout<<"After sorting"<<endl;
 	ge.printGraph();

@@ -6,6 +6,8 @@
  */
 #include "Graph.h"
 #include "UnionFind.h"
+#include "KruskalMST.h"
+
 int main(){
 
 
@@ -20,6 +22,7 @@ int main(){
 	cin>>edges;
 	Graph_EdgeList ge(vertex_edgelist,edges);
 	UnionFind uf;
+	KruskalMST kmst;
 	int option;
 		do{
 		cout<<endl<<"Menu:"<<endl;
@@ -29,6 +32,7 @@ int main(){
 		cout<<endl<<"4. Print EdgeListGraph"<<endl;
 		cout<<endl<<"5. Union Find algorithm to detect cycle in EdgeListGraph"<<endl;
 		cout<<endl<<"6. Union Find algorithm to detect cycle in EdgeListGraph(Union by rank and PathCompression)"<<endl;
+		cout<<endl<<"7.Print Kruskal MST"<<endl;
 		cout<<endl<<"-1. Enter -1 to quit"<<endl;
 		cin>>option;
 		switch(option){
@@ -61,6 +65,10 @@ int main(){
 						case 6:
 							uf.isCycle_UnionByRankPathCompression(ge);
 							break;
+						case 7:
+							kmst.printKruskalMST(ge);
+							break;
+
 		             }
           }while(option !=-1);
 }

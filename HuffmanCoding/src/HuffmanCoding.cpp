@@ -10,6 +10,7 @@
 
 HuffmanMinHeap::HuffmanMinHeap(char *characters,int * count,int size){
 	this->size=size;
+	this->heapsize=size;
 	//Creating heap with the input character array and count array
 	heapnodearray=new HuffmanNode*[size];
 	for(int i=0;i<size;i++){
@@ -20,18 +21,23 @@ HuffmanMinHeap::HuffmanMinHeap(char *characters,int * count,int size){
 		heapnodearray[i]->right=NULL;
 	}
 }
+
 void HuffmanMinHeap::min_heapify(int index){
 	int left=2*index+1;
 	int right=2*index;
-	int largest=index;
-    if(left<heapsize && heapnodearray[left]->data>heapnodearray[index]->data){
-    	largest=left;
+	int smallest=index;
+    if(left<heapsize && heapnodearray[left]->data<heapnodearray[index]->data){
+    	smallest=left;
     }
-    if(left<heapsize && heapnodearray[right]->data>heapnodearray[index]->data){
-        	largest=right;
+    if(left<heapsize && heapnodearray[right]->data<heapnodearray[index]->data){
+    	smallest=right;
     }
-    if(largest!=index){
-    	swap(heapnodearray,largest,index);
-    	min_heapify(largest);
+    if(smallest!=index){
+    	swap(heapnodearray,smallest,index);
+    	min_heapify(smallest);
     }
+}
+
+void build_min_heap(){
+
 }

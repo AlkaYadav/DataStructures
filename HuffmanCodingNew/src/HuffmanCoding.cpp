@@ -7,6 +7,7 @@
 //============================================================================
 
 #include "HuffmanCoding.h"
+#define MAX_TREE_SIZE 100
 
 HuffmanMinHeap::HuffmanMinHeap(char *characters,int * count,int size){
 	this->size=size;
@@ -69,9 +70,6 @@ void HuffmanMinHeap::min_heapify(int index){
     }
     if(smallest!=index){
     	swap(smallest,index);
-    	cout<<"After swap is done"<<endl;
-    	cout<<"Printing ..."<<endl;
-    	printHeap();
     	min_heapify(smallest);
     }
 }
@@ -80,13 +78,8 @@ void HuffmanMinHeap::min_heapify(int index){
 void HuffmanMinHeap::build_min_heap(){
 	cout<<"In build min heap"<<endl;
    for(int i=(heapsize/2)-1;i>=0;i--){
-	   cout<<"For index"<<i<<"calling min heapify"<<endl;
 	   min_heapify(i);
-	   printHeap();
    }
-   //To REmove
-   cout<<"after min heap build done"<<endl;
-   printHeap();
 }
 
 //Extract minimum element from min heap
@@ -94,9 +87,6 @@ HuffmanNode* HuffmanMinHeap::extractmin(){
 	HuffmanNode *smallestNode;
 	HuffmanNode *lastNode;
 	smallestNode=heapnodearray[0];
-	if(isSizeOne()){
-		return smallestNode;
-	}
 	lastNode=heapnodearray[heapsize-1];
 	swap(0,heapsize-1);
 	heapsize--;
@@ -110,7 +100,7 @@ void HuffmanMinHeap::decreaseMinHeapKey(int index,int key){
 		cout<<"Value must be less than"<<heapnodearray[index]->data;
 		return;
 	}
-	heapnodearray[index]->data=key;
+	heapnodearray[index]->count=key;
 	int _parent =parent(index);
 	while(index>0 && heapnodearray[index]->count<heapnodearray[_parent]->count){
 		swap(index,_parent);
@@ -155,36 +145,37 @@ HuffmanCoding::HuffmanCoding(char *characters,int * count,int size){
 void HuffmanCoding::buildHuffmanTree(){
 	cout<<"In build huffman coding const"<<endl;
 	hminheap->build_min_heap();
-	hminheap->printHeap();
 	while(!hminheap->isSizeOne()){
 		HuffmanNode *minimum1=hminheap->extractmin();
 		HuffmanNode *minimum2=hminheap->extractmin();
-		cout<<"Extracting minimum 1"<<minimum1->count<<endl;
-		cout<<"Extracting minimum 2"<<minimum2->count<<endl;
 		HuffmanNode *newnode=hminheap->insertminheap(minimum1->count+minimum2->count);
 		newnode->left=minimum1;
 		newnode->right=minimum2;
 	}
-   //printHuffmanCodes(hminheap->heapnodearray[0]);
+	int arr[MAX_TREE_SIZE];
+	HuffmanNode *minimum1=hminheap->extractmin();
+	int top = 0;
+    printHuffmanCodes(minimum1,arr,top);
 }
 
 
 //Print Huffman code
-void HuffmanCoding::printHuffmanCodes(HuffmanNode *node){
-    if(hminheap->heapsize<=0)
-    	return;
-	while(!hminheap->isLeafNode(node)){
-		if(node->left){
-			cout<<"0";
-			printHuffmanCodes(node->left);
-		}
-		if(node->right){
-					cout<<"1";
-					printHuffmanCodes(node->right);
-	    }
+void HuffmanCoding::printHuffmanCodes(HuffmanNode *node,int arr[],int top){
 
+	if(node->left){
+		arr[top]=0;
+		printHuffmanCodes(node->left,arr,top+1);
 	}
-	cout<<node->data<<endl;
-
+	if(node->right){
+			arr[top]=1;
+			printHuffmanCodes(node->right,arr,top+1);
+	}
+	if(hminheap->isLeafNode(node)){
+		cout<<"Code for"<<node->data<<"::";
+		for(int i=0;i<top;i++){
+							cout<<arr[i];
+		}
+	}
+	cout<<endl;
 
 }

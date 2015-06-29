@@ -52,6 +52,6 @@ class HuffmanCoding{
 public:
 	HuffmanCoding(char *characters,int * count,int size);
     void buildHuffmanTree();
-    void printHuffmanCodes(HuffmanNode *root);
+    void printHuffmanCodes(HuffmanNode *root,int arr[],int top);
 };
 #endif /* HUFFMANCODING_H_ */
